@@ -3,9 +3,35 @@
 
 {% block content %}
 
-{% for post in posts %}
-	<h1>{{post.post_title}}</h1>
-	<p>{{post.post_text}}</p>
-{% endfor %}
+   <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            {{post.post_title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{post.post_text}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">{{post.author}}</a> on {{post.date_created|date:"F d, Y"}}</p>
+                </div>
+                <hr>
+				{% endfor %}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<h1></h1>
+	<p></p>
 
 {% endblock %}
