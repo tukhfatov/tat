@@ -19,10 +19,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
+import blog.views
 
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
+    url(r'^blog/', include('blog.urls')),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
 ]
