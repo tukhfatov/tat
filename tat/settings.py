@@ -79,11 +79,17 @@ WSGI_APPLICATION = 'tat.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8tctt3fgu3d8n',
+        'USER': 'icjazyszlgqqho',
+        'PASSWORD': 'vtUXH6XjBizWKoYefqjZ_9eh2q',
+        'HOST': 'ec2-54-228-246-206.eu-west-1.compute.amazonaws.com',        
     }
 }
 
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
