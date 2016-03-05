@@ -22,5 +22,4 @@ class Post(models.Model):
 			if not Post.objects.filter(post_slug=self.post_slug).exclude(pk=self.id).exists():
 				break
 			self.post_slug = '%s-%d' % (original[:max_length - len(str(x)) - 1], x)
-		self.post_short = self.post_text[:60]
 		super(Post, self).save(*args, **kwargs)
