@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
-    
+
     'hello',
     'blog',
 ]
@@ -152,3 +152,28 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+
+SUMMERNOTE_CONFIG = {
+    'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
+
+    # Using Summernote Air-mode
+    'airMode': False,
+
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Change editor size
+    'width': '100%',
+    'height': '480',
+
+    # Use proper language setting automatically (default)
+    'lang': None,
+
+    # Or, set editor language/locale forcely
+    'lang': 'ru-Ru',
+
+    # Need authentication while uploading attachments.
+    'attachment_require_authentication': True,
+
+}
