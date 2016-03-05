@@ -1,0 +1,52 @@
+{% extends "blog_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	
+	<!-- Page Header -->
+    <header class="intro-header" style="background-image: url({% static 'img/home-bg.jpg' %})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>@tukhfatov</h1>
+                        <hr class="small">
+                        <span class="subheading">Простые записи о моей любимой</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+   <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a href="{% url 'blog_detail' post.post_slug %}">
+                        <h2 class="post-title">
+                            {{post.post_title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{post.post_short}}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Опубликовано {{post.date_created|date:"F d, Y"}} автором <a href="#">{{post.author}}</a>  </p>
+                </div>
+                <hr>
+				{% endfor %}
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+	<h1></h1>
+	<p></p>
+
+{% endblock %}

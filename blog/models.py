@@ -9,6 +9,7 @@ import itertools
 class Post(models.Model):
 	post_title = models.CharField(max_length = 100)
 	post_text = models.TextField()
+	post_short = models.CharField(max_length=60, blank = True)
 	date_created = models.DateTimeField(auto_now_add=True)
 	author = models.ForeignKey(User)
 	post_slug = models.SlugField(max_length=20, blank=True)
@@ -21,5 +22,5 @@ class Post(models.Model):
 			if not Post.objects.filter(post_slug=self.post_slug).exclude(pk=self.id).exists():
 				break
 			self.post_slug = '%s-%d' % (original[:max_length - len(str(x)) - 1], x)
-
+		self.post_short = self.post_text[:60]
 		super(Post, self).save(*args, **kwargs)
