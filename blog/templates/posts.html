@@ -29,7 +29,7 @@
                             {{post.post_title}}
                         </h2>
                         <h3 class="post-subtitle">
-                            {{post.post_short}}
+                            {{post.post_short|striptags}}
                         </h3>
                     </a>
                     <p class="post-meta">Опубликовано {{post.date_created|date:"F d, Y"}} автором <a href="#">{{post.author}}</a>  </p>

@@ -10,7 +10,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>{{post.post_title}}</h1>
-                        <h2 class="subheading">{{post.post_short}}</h2>
+                        <h2 class="subheading">{{post.post_short|striptags}}</h2>
                         <span class="meta">Опубликовано {{post.date_created|date:"F d, Y"}} автором <a href="#">{{post.author}}</a>  </span>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    {{post.post_text}}
+                    {{post.post_text|safe}}
                 </div>
             </div>
         </div>
